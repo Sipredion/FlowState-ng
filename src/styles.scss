@@ -1,3 +1,4 @@
+@import "scss/variables/theme-vars";
 @import "scss/themes/theme";
 // Imports functions, variables, and mixins that are needed by other Bootstrap files
 @import "scss/variables/bootstrap-override";
@@ -9,12 +10,18 @@
 @import "~bootstrap/scss/utilities"; // add css utilities
 @import "scss/themes/reset";
 
+// Directives
+@import "scss/directives/ghost-buttons";
 
-html, body {
+
+html, body, app-root, .app-frame {
+  overflow: hidden;
+  margin: 0;
   height: 100%;
+  box-sizing: border-box;
+  color: #e0e0e0;
 }
 
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

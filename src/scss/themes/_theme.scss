@@ -1,3 +1,7 @@
+@import "theme-palettes/theme-palette-primary";
+@import "theme-palettes/theme-palette-accent";
+@import "theme-palettes/theme-palette-danger";
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -11,14 +15,14 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$FlowState-ng-primary: mat-palette($mat-indigo);
-$FlowState-ng-accent: mat-palette($mat-pink, A200, A100, A400);
+$FlowState-ng-primary: mat-palette($primaryPalette);
+$FlowState-ng-accent: mat-palette($accentPalette);
 
 // The warn palette is optional (defaults to red).
-$FlowState-ng-warn: mat-palette($mat-red);
+$FlowState-ng-warn: mat-palette($warnPalette);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$FlowState-ng-theme: mat-light-theme($FlowState-ng-primary, $FlowState-ng-accent, $FlowState-ng-warn);
+$FlowState-ng-theme: mat-dark-theme($FlowState-ng-primary, $FlowState-ng-accent, $FlowState-ng-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
