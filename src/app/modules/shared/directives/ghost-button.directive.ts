@@ -94,6 +94,7 @@ export class GhostButtonDirective implements OnInit {
     this.setButtonColor(color, disabled);
     const el = this.el.nativeElement;
     this.renderer.addClass(el, 'ghost-button-initial');
+    this.renderer.setStyle(el, 'font-size', '.9rem');
     this.renderer.setStyle(el, 'color', `rgb(255, 255, 255)`);
     this.renderer.setStyle(el, 'border', `1px solid rgb(${this.buttonColor})`);
     this.renderer.setStyle(el, 'text-shadow', `0 1px 3px rgba(0, 0, 0, 0.2)`);
@@ -108,15 +109,21 @@ export class GhostButtonDirective implements OnInit {
   protected setButtonSize(size: string, el: ElementRef) {
     switch (size) {
       case 'xl':
-        return this.renderer.setStyle(el, 'font-size', '2rem');
-      case 'lrg':
-        return this.renderer.setStyle(el, 'font-size', '1.5rem');
+        this.renderer.setStyle(el, 'width', '14rem');
+        this.renderer.setStyle(el, 'height', '3rem');
+        break;
+      case 'lg':
+        // return this.renderer.setStyle(el, 'font-size', '1.5rem');
+        return this.renderer.setStyle(el, 'width', '9rem');
       case 'md':
-        return this.renderer.setStyle(el, 'font-size', '1.3rem');
+        // return this.renderer.setStyle(el, 'font-size', '1.3rem');
+        return this.renderer.setStyle(el, 'width', '6rem');
       case 'sml':
-        return this.renderer.setStyle(el, 'font-size', '.9rem');
+        // return this.renderer.setStyle(el, 'font-size', '.9rem');
+        return this.renderer.setStyle(el, 'width', '3rem');
       case 'xs':
-        return this.renderer.setStyle(el, 'font-size', '.7rem');
+        // return this.renderer.setStyle(el, 'font-size', '.7rem');
+        return this.renderer.setStyle(el, 'width', '1rem');
       default:
         return this.renderer.setStyle(el, 'font-size', '.9rem');
     }
@@ -142,8 +149,8 @@ export class GhostButtonDirective implements OnInit {
           this.buttonFocusColor = '200, 200, 200';
           break;
         default:
-          this.buttonColor = '61, 61, 61';
-          this.buttonFocusColor = '0, 0, 0';
+          this.buttonColor = '235, 235, 235';
+          this.buttonFocusColor = '255, 255, 255';
           break;
       }
     } else {

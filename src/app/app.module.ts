@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './modules/shared/shared.module';
 import {PublicModule} from './modules/public/public.module';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {PublicModule} from './modules/public/public.module';
     SharedModule,
     PublicModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {maxWidth: '100%', hasBackdrop: true, backdropClass: 'app-backdrop'}}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,21 @@
+<section class="featured" #featured>
+  <h1 class="test-accent text-uppercase">Featured Work</h1>
+  <hr class="dropdown-divider w-85 mx-auto">
+  <div class="featured-tabs">
+    <button class="feat-tab web-tab" [class.active-feature]="currentType === 'WEB'" (click)="changeFeatureModels('WEB')">
+      <span class="text-large text-light">
+        Web
+      </span>
+    </button>
+    <button class="feat-tab art-tab" [class.active-feature]="currentType === 'ART'" (click)="changeFeatureModels('ART')">
+      <span class="text-large text-light">
+        Art
+      </span>
+    </button>
+  </div>
+  <div class="d-flex flex-wrap align-item-center justify-content-center mt-3">
+    <ng-container *ngFor="let item of featuredProjects">
+      <app-featured-card [featured]="item"></app-featured-card>
+    </ng-container>
+  </div>
+</section>

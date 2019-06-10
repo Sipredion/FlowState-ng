@@ -1,0 +1,21 @@
+.light-box-image {
+  max-height: 800px;
+}
+
+.light-box-details {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.view-details {
+  opacity: 1;
+}

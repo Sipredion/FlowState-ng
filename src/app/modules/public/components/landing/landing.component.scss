@@ -1,0 +1,18 @@
+.landing-bg {
+  height: 100%;
+  background: url("../../../../../assets/app-images/FlowStateFinal.png") repeat-x center/contain;
+}
+
+.intro {
+  //position: absolute;
+  //bottom: 8rem;
+  margin-top: 16.5rem;
+}
+
+.call-to-action {
+  margin-top: .75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

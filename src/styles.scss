@@ -11,11 +11,14 @@
 @import "scss/themes/reset";
 
 // Directives
-@import "scss/directives/ghost-buttons";
+@import "scss/directives/all";
+
+// General
+@import "scss/utils/utilities";
 
 
 html, body, app-root, .app-frame {
-  overflow: hidden;
+  overflow: auto;
   margin: 0;
   height: 100%;
   box-sizing: border-box;

@@ -1,11 +1,21 @@
-<mat-toolbar color="primary">
-  <p class="text-info">Flow State</p>
-</mat-toolbar>
-<mat-card>
-  <mat-card-content>
-    This is a test Card
-    <button appGhostButton color="primary">Primary</button>
-    <button appGhostButton color="accent">Accent</button>
-    <button appGhostButton color="warn">Warn</button>
-  </mat-card-content>
-</mat-card>
+<app-navigation></app-navigation>
+<div class="landing-bg">
+  <div class="main-page d-flex flex-column align-items-center h-100">
+    <img class="mt-5" src="../../../../../assets/app-images/app-logo.png" width="225" alt="App Logo - 3-dimensional Flower Of Life">
+    <div class="intro">
+      <mat-card class="bg-translucent">
+        <mat-card-content>
+          <div class="d-flex flex-column justify-content-center align-items-center position-relative">
+            <h1>I'm <span class="text-danger">Michael</span></h1>
+            <h3>A professional Web developer and hobbyist 3D creator</h3>
+            <button appGhostButton color="accent" size="xl" class="call-to-action" (click)="scroll = !scroll">
+              Check out some of my work
+              <span><i class="fas fa-angle-double-down fa-sm"></i></span>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<app-featured [scroll]="scroll"></app-featured>

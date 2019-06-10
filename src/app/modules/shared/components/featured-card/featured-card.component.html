@@ -1,0 +1,23 @@
+<mat-card class="featured-card">
+  <mat-card-content class="position-relative h-100">
+    <img [src]="featured.imageUrl" width="500" height="230" [alt]="featured.title" class="featured-image"  (click)="viewContent()">
+    <div class="featured-content">
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center w-100">
+          <small class="w-33 text-center">
+            <a class="cursor-pointer" (click)="viewContent()">See more</a>
+          </small>
+          <h3 class="w-33 text-center">{{featured.title}}</h3>
+          <small class="w-33 text-center">
+            <a>View on {{originSite}}</a>
+          </small>
+        </div>
+        <p class="p-1 text-center">{{featured.description}}</p>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #lightBox>
+  <app-light-box [featured]="featured"></app-light-box>
+</ng-template>
