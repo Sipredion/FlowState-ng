@@ -19,7 +19,6 @@ function createMockData(type: string) {
     });
   });
 
-  console.log(mockData);
   return mockData;
 }
 

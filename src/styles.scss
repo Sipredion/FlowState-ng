@@ -10,11 +10,14 @@
 @import "~bootstrap/scss/utilities"; // add css utilities
 @import "scss/themes/reset";
 
+// Components
+@import "scss/components/all";
+
 // Directives
 @import "scss/directives/all";
 
 // General
-@import "scss/utils/utilities";
+@import "scss/utils/all";
 
 
 html, body, app-root, .app-frame {

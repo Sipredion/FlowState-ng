@@ -7,6 +7,7 @@ const routes: Routes = [
   // Lazy-loaded
   {path: 'web', loadChildren: () => import('./modules/Web/web.module').then(m => m.WebModule)},
   {path: 'art', loadChildren: () => import('./modules/Art/art.module').then(m => m.ArtModule)},
+  {path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
   // Catch-all
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   // TODO: Create a 404 component

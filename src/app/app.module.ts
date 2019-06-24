@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from './modules/shared/shared.module';
 import {PublicModule} from './modules/public/public.module';
 import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule,
     PublicModule
   ],
