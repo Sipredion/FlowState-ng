@@ -1,0 +1,14 @@
+<app-spinner [loading]="isLoading$">
+  <figure class="grid-container">
+    <ng-container *ngFor="let art of artwork">
+      <div class="gallery-item" #featuredImg>
+        <div class="gallery-content">
+          <h2 class="text-center">{{art.title}}</h2>
+          <div class="hr"></div>
+          <p class="text-light" [innerHTML]="art.summary"></p>
+          <button appGhostButton color="primary" class="action-button" (click)="showPost(art.id, art.slug)">See more</button>
+        </div>
+      </div>
+    </ng-container>
+  </figure>
+</app-spinner>

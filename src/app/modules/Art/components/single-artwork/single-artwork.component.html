@@ -1,0 +1,22 @@
+<app-spinner [loading]="isLoading$">
+  <div class="artwork-body">
+    <div class="w-95 mx-auto">
+      <mat-card>
+        <mat-card-content>
+          <h1 mat-card-title class="text-primary text-center">{{artwork.title}}</h1>
+        </mat-card-content>
+        <div class="d-flex justify-content-center align-items-center">
+          <img [src]="artwork.featuredImage" [alt]="artwork.title" class="single-image">
+        </div>
+      </mat-card>
+    </div>
+    <div class="w-75">
+      <mat-card>
+        <mat-card-content>
+          <h3 mat-card-title>What it's all about...</h3>
+          <p [innerHTML]="artwork.content"></p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</app-spinner>

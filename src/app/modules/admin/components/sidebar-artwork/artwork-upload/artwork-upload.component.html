@@ -1,7 +1,40 @@
+<h3 class="text-center mt-2">Upload a new {{uploadType}}</h3>
+<hr class="w-85 border-primary">
 <div class="p-4 d-flex flex-column justify-content-center align-items-center">
-  <form [formGroup]="uploadRenderForm">
-    <mat-form-field>
-      <input matInput type="text" placeholder="Title" formControlName="title">
-    </mat-form-field>
+  <form [formGroup]="uploadRenderForm" (ngSubmit)="onSubmit(uploadRenderForm)">
+    <div class="d-flex flex-column align-items-center">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Title" formControlName="title">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput rows="4" type="text" placeholder="Description" formControlName="description"></textarea>
+      </mat-form-field>
+      <button appGhostButton color="accent" size="lg" (click)="attachFile(fileInput)">Attach a file</button>
+      <ng-container *ngIf="!isUploading; else loading">
+        <p class="text-light mt-2" *ngIf="!fileInput.files.length">Please attach a file</p>
+        <p class="text-primary mt-2" *ngIf="fileInput.files.length">
+          {{fileInput.files[0].name}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="w-100 d-flex justify-content-center">
+      <button
+        appGhostButton
+        color="accent"
+        size="xl"
+        type="submit"
+        class="mt-3"
+        [isDisabled]="!fileInput.files.length"
+        [disabled]="!fileInput.files.length"
+        (click)="uploadRender(uploadRenderForm.value)"
+      >
+        Upload {{uploadType}}
+      </button>
+    </div>
+  <input type="file" accept="image/png" class="d-none" (change)="prepareFile(fileInput)" #fileInput formControlName="render">
   </form>
 </div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

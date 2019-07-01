@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatBottomSheetRef} from '@angular/material';
-import {ArtworkService} from '../../../services/artwork.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {RenderModel} from '../../../../shared/models/render.model';
+import {Render} from '../../../../shared/models/render';
 
 @Component({
   selector: 'app-artwork-upload',
@@ -12,26 +11,35 @@ import {RenderModel} from '../../../../shared/models/render.model';
 export class ArtworkUploadComponent implements OnInit {
 
   @Input() dialogRef: MatBottomSheetRef;
+  @Input() uploadType: string;
+  @Output() render = new EventEmitter<Render>();
 
   uploadRenderForm: FormGroup;
+  isUploading: boolean;
 
-  constructor(private artService: ArtworkService,
-              private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
-    this.uploadRenderForm = this.formBuilder.group(new RenderModel());
+    this.uploadRenderForm = this.formBuilder.group(new Render());
   }
 
-  closeContainer() {
-    this.dialogRef.dismiss();
+  attachFile(inputElement: HTMLInputElement) {
+    inputElement.click();
   }
 
-  uploadArtwork(render: File) {
-    console.log(render);
-    this.artService.uploadRender(render).subscribe(uploaded => {
-      console.log(uploaded);
-    });
+  onSubmit(form: FormGroup) {
+    console.log(form.value);
   }
 
+  prepareFile(fileInput: HTMLInputElement) {
+    this.isUploading = true;
+    this.uploadRenderForm.patchValue({renderName: fileInput.files[0].name});
+    console.log(this.uploadRenderForm.value);
+    this.isUploading = false;
+  }
+
+  uploadRender(render: Render) {
+    this.render.emit(render);
+  }
 }

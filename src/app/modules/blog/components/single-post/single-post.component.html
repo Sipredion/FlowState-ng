@@ -1,0 +1,9 @@
+<app-spinner [loading]="loading">
+  <article class="single-post" *ngIf="post">
+    <div class="post-header" [ngStyle]="{'background': 'url(' + post.featuredImage + ') center/cover no-repeat'}">
+      <div class="app-backdrop"></div>
+      <h1 class="post-title">{{post.title}}</h1>
+    </div>
+    <div class="post-content" [innerHTML]="post.content"></div>
+  </article>
+</app-spinner>

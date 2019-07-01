@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav mode="side" opened class="sidebar">
+    <div class="sidebar-header"></div>
+    
+    <h2 class="text-center mt-2">Recent Posts:</h2>
+    <div class="recent posts">
+      <ng-container *ngFor="let post of allPosts">
+        <button
+          appGhostButton
+          color="accent"
+          size="lg"
+          class="mt-2"
+          (click)="routeToPost(post.id, post.slug)"
+        >
+          {{post.name}}
+        </button>
+      </ng-container>
+    </div>
+    
+    <h2 class="text-center mt-4">Featured Posts:</h2>
+    <div class="featured posts">
+      <ng-container *ngFor="let post of featuredPosts">
+        <button
+          appGhostButton
+          color="accent"
+          size="lg"
+          class="mt-2"
+          (click)="routeToPost(post.id, post.slug)"
+        >
+          {{post.name}}
+        </button>
+      </ng-container>
+    </div>
+    
+    <footer class="sidebar-footer">
+      <nav class="sidebar-nav">
+        <button appGhostButton color="primary" size="sml" routerLink="/web/home">Web</button>
+        <button appGhostButton color="primary" size="sml" routerLink="">Home</button>
+        <button appGhostButton color="primary" size="sml" routerLink="/art/home">Art</button>
+      </nav>
+    </footer>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

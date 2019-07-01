@@ -1,0 +1,16 @@
+.featured-blog-post {
+  border: 1px solid white;
+  margin: 1rem;
+  position: relative;
+}
+
+.app-backdrop {
+  height: 8rem;
+}
+
+.blog-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}

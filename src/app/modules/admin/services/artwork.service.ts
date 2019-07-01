@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {BaseHttpService} from '../../shared/services/base-http.service';
-import {FuelHostEntity} from '../../shared/services/fuel-host-entity.enum';
+import {FlowStateHostEntity} from '../../shared/services/flowstate-host-entity.enum';
 import {HttpClient, HttpEvent} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Render} from '../../shared/models/render';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ArtworkService extends BaseHttpService {
   }
 
   getAllRenders(): Observable<any> {
-    let url = this._setUrl(FuelHostEntity.RENDERS);
+    let url = this._setUrl(FlowStateHostEntity.RENDERS);
     const renders = [
       '3c8d9595c8537c55d2415eda2d82e125',
       '6eed1cdfc2444db55c65a6d42ba2040b',
@@ -31,22 +32,23 @@ export class ArtworkService extends BaseHttpService {
     });
   }
 
-  // getRenderById(id: string): Observable<RenderModel> {
-  //   let url = this._setUrl(FuelHostEntity.RENDERS);
+  // getRenderById(id: string): Observable<Render> {
+  //   let url = this._setUrl(FlowStateHostEntity.RENDERS);
   //   url += `/${id}`;
-  //   return this._get<RenderModel>(url);
+  //   return this._get<Render>(url);
   // }
 
-  getRenderImageByFileName(fileName: string): Observable<HttpEvent<Blob>> {
-    let url = this._setUrl(FuelHostEntity.RENDERS);
+  getRenderImageByFileName(fileName: string): Observable<Blob> {
+    let url = this._setUrl(FlowStateHostEntity.RENDERS);
     url += `/file/${fileName}`;
     return this._get<Blob>(url, {
       responseType: 'blob' as 'json'
     });
   }
 
-  uploadRender(render: File): Observable<Blob> {
-    const url = this._setUrl(FuelHostEntity.RENDERS);
+  uploadRender(render: Render): Observable<string> {
+    const url = this._setUrl(FlowStateHostEntity.RENDERS);
+    // const headers = this._getHeaders('file');
     return this._post<any>(url, render);
   }
 }

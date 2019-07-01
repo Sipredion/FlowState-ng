@@ -1,12 +1,11 @@
-.admin-sidebar {
+.sidebar-header {
+  background: url("../../../../../assets/app-images/LowPolyMountain.png") no-repeat center/cover;
+}
+.sidebar-container {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 1px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar-header {
-  background: url("../../../../../assets/app-images/LowPolyMountain.png") no-repeat center/cover;
 }

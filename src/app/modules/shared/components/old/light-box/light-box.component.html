@@ -1,10 +1,10 @@
 <div class="d-flex flex-column align-items-center position-relative">
-  <img [src]="featured.imageUrl" width="1500" class="light-box-image">
+  <img [src]="featured.featuredImage" width="1500" class="light-box-image">
   <div class="light-box-details" [class.view-details]="showDetails">
     <div class="w-33 mx-auto d-flex flex-column justify-content-center align-items-center">
       <h1 class="mt-4 shadow">{{featured.title}}</h1>
       <hr class="dropdown-divider w-75">
-      <p class="p-2">{{featured.description}}</p>
+      <p class="p-2">{{featured.summary}}</p>
       <button appGhostButton color="accent">View on {{originSite}}</button>
     </div>
   </div>

@@ -1,0 +1,11 @@
+<h1 class="text-center">Featured</h1>
+<hr class="dropdown-divider w-85 mx-auto">
+<ng-container *ngIf="posts">
+  <div class="post-gallery mt-5">
+    <ng-container *ngFor="let post of posts">
+      <div class="w-50">
+        <app-featured-blog [featuredPost]="post"></app-featured-blog>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

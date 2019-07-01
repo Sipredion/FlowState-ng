@@ -1,4 +1,4 @@
-@import "../../../../../scss/variables/theme-vars";
+@import "../../../../../../scss/variables/theme-vars";
 
 .featured-content {
   position: absolute;
@@ -17,9 +17,9 @@
   z-index: 50;
   border-radius: 4px;
   transition: box-shadow .3s ease, transform .5s ease;
+  box-shadow: 0 2px 4px rgba(darken($primary, 10%), 0.8), 0 0 1px rgba($primary, 0.8);
   &:hover {
     box-shadow: 0 2px 4px rgba($primary, 0.8), 0 0 1px rgba($primary, 0.8);
-    transform: scale(1.1);
     cursor: pointer;
   }
 }

@@ -1,0 +1,25 @@
+.post-header {
+  margin: 2rem 10%;
+  border: 1px solid white;
+  position: relative;
+  height: 6rem;
+}
+
+.post-title {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.app-backdrop {
+  width: 100%;
+  height: 100%;
+}
+
+.post-content {
+  margin: 2rem 10%;
+  padding: .75rem;
+  border: 1px solid white;
+  position: relative;
+}

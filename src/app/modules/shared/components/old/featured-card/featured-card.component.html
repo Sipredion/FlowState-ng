@@ -1,6 +1,6 @@
 <mat-card class="featured-card">
   <mat-card-content class="position-relative h-100">
-    <img [src]="featured.imageUrl" width="500" height="230" [alt]="featured.title" class="featured-image"  (click)="viewContent()">
+    <img [src]="featured.featuredImage" width="500" height="230" [alt]="featured.title" class="featured-image"  (click)="viewContent()">
     <div class="featured-content">
       <div class="d-flex flex-column align-items-center">
         <div class="d-flex align-items-center w-100">
@@ -12,7 +12,7 @@
             <a>View on {{originSite}}</a>
           </small>
         </div>
-        <p class="p-1 text-center">{{featured.description}}</p>
+        <p class="p-1 text-center">{{featured.summary}}</p>
       </div>
     </div>
   </mat-card-content>

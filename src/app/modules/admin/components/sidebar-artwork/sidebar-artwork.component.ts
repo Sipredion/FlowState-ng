@@ -3,6 +3,7 @@ import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import {ArtworkUploadComponent} from './artwork-upload/artwork-upload.component';
 import {ArtworkService} from '../../services/artwork.service';
 import {Subscription} from 'rxjs';
+import {Render} from '../../../shared/models/render';
 
 @Component({
   selector: 'app-sidebar-artwork',
@@ -12,29 +13,24 @@ import {Subscription} from 'rxjs';
 export class SidebarArtworkComponent implements OnInit {
 
   @ViewChild('upload', {static: true}) upload: TemplateRef<ArtworkUploadComponent>;
-  @ViewChild('render', {static: true}) render: ElementRef;
 
   dialogRef: MatBottomSheetRef;
-
-  renderSubscription: Subscription;
-
-  // render: HttpEvent<Blob>;
 
   constructor(private bottomSheet: MatBottomSheet,
               private artService: ArtworkService) {
   }
 
   ngOnInit() {
-    this.renderSubscription = this.artService.getRenderImageByFileName('3c8d9595c8537c55d2415eda2d82e125').subscribe(render => {
-      this.render.nativeElement.src = window.URL.createObjectURL(render);
-    });
-    // this.renderSubscription = this.artService.getAllRenders().subscribe(renders => {
-    //   console.log(renders);
-    // })
   }
 
   openBottomSheet() {
     this.dialogRef = this.bottomSheet.open<ArtworkUploadComponent>(this.upload);
+  }
+
+  uploadRender(render: Render) {
+    this.artService.uploadRender(render).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }

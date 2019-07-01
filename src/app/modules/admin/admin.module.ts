@@ -21,6 +21,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     SharedModule,
     ReactiveFormsModule
   ],
+  exports: [
+    SidebarArtworkComponent
+  ],
   providers: [MatBottomSheet]
 })
 export class AdminModule {

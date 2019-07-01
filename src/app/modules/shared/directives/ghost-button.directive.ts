@@ -1,13 +1,13 @@
-import {Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
 
 @Directive({
   selector: '[appGhostButton]'
 })
-export class GhostButtonDirective implements OnInit {
+export class GhostButtonDirective implements OnInit, OnChanges {
 
   @Input() color: string;
   @Input() size: string;
-  @Input() disabled?: boolean;
+  @Input() isDisabled?: boolean;
 
   private buttonColor: string;
   private buttonFocusColor: string;
@@ -18,7 +18,7 @@ export class GhostButtonDirective implements OnInit {
 
   @HostListener('mouseenter')
   hover() {
-    if (!this.disabled) {
+    if (!this.isDisabled) {
       this.onHover();
     }
   }
@@ -30,7 +30,7 @@ export class GhostButtonDirective implements OnInit {
 
   @HostListener('mousedown')
   click() {
-    if (!this.disabled) {
+    if (!this.isDisabled) {
     this.onMouseClick();
     }
   }
@@ -42,7 +42,7 @@ export class GhostButtonDirective implements OnInit {
 
   @HostListener('focus')
   focus() {
-    if (!this.disabled) {
+    if (!this.isDisabled) {
       this.onFocus();
     }
   }
@@ -53,7 +53,13 @@ export class GhostButtonDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.setInitialStyle(this.color, this.disabled);
+    this.setInitialStyle(this.color, this.isDisabled);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes && changes['isDisabled'] && !changes['isDisabled'].isFirstChange()) {
+      this.setInitialStyle(this.color, this.isDisabled);
+    }
   }
 
   // Button State Functions //
@@ -120,7 +126,7 @@ export class GhostButtonDirective implements OnInit {
         return this.renderer.setStyle(el, 'width', '6rem');
       case 'sml':
         // return this.renderer.setStyle(el, 'font-size', '.9rem');
-        return this.renderer.setStyle(el, 'width', '3rem');
+        return this.renderer.setStyle(el, 'width', '3.5rem');
       case 'xs':
         // return this.renderer.setStyle(el, 'font-size', '.7rem');
         return this.renderer.setStyle(el, 'width', '1rem');
@@ -129,34 +135,46 @@ export class GhostButtonDirective implements OnInit {
     }
   }
 
-  protected setButtonColor(color: string, disabled: boolean) {
+  protected setButtonColor(color: string, disabled: boolean, isChange?: boolean) {
     if (!disabled) {
       switch (color) {
         case 'primary':
           this.buttonColor = '120, 218, 5';
           this.buttonFocusColor = '72, 135, 0';
+          this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+          this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
           break;
         case 'accent':
           this.buttonColor = '12, 103, 153';
           this.buttonFocusColor = '4, 63, 94';
+          this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+          this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
           break;
         case 'warn':
           this.buttonColor = '241, 59,  6';
           this.buttonFocusColor = '148, 33,  0';
+          this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+          this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
           break;
         case 'light':
           this.buttonColor = '255, 255, 255';
           this.buttonFocusColor = '200, 200, 200';
+          this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+          this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
           break;
         default:
           this.buttonColor = '235, 235, 235';
           this.buttonFocusColor = '255, 255, 255';
+          this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
+          this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
           break;
       }
     } else {
-      // Set Default color for disabled buttons
+      // Set Default color for isDisabled buttons
       this.buttonColor = '61, 61, 61';
       this.buttonFocusColor = '0, 0, 0';
+      this.renderer.setStyle(this.el.nativeElement, 'cursor', 'default');
+      this.renderer.setStyle(this.el.nativeElement, 'opacity', '.5');
     }
   }
 

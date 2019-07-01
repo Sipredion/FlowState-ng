@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FeaturedModel} from '../../models/featured.model';
+import {GalleryType} from '../../../models/gallery-type.enum';
+import {Render} from '../../../models/render';
+import {Web} from '../../../models/web';
 
 @Component({
   selector: 'app-light-box',
@@ -8,7 +10,7 @@ import {FeaturedModel} from '../../models/featured.model';
 })
 export class LightBoxComponent implements OnInit {
 
-  @Input() featured: FeaturedModel;
+  @Input() featured: Render | Web;
 
   showDetails = false;
   originSite: string;
@@ -18,7 +20,7 @@ export class LightBoxComponent implements OnInit {
 
   ngOnInit() {
     this.originSite =
-      this.featured.type === 'WEB' ?
+      this.featured.type === GalleryType.WEB ?
         'Github' :
         'ArtStation';
   }

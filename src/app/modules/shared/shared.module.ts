@@ -4,10 +4,12 @@ import {MaterialModule} from './modules/material/material.module';
 import {GhostButtonDirective} from './directives/ghost-button.directive';
 import {SpinnerComponent} from './components/spinner/spinner.component';
 import {FeaturedCardDirective} from './directives/featured-card.directive';
-import {FeaturedCardComponent} from './components/featured-card/featured-card.component';
-import { LightBoxComponent } from './components/light-box/light-box.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import {FeaturedCardComponent} from './components/old/featured-card/featured-card.component';
+import {LightBoxComponent} from './components/old/light-box/light-box.component';
+import {NavigationComponent} from './components/navigation/navigation.component';
 import {RouterModule} from '@angular/router';
+import {FeaturedBlogComponent} from './components/old/featured-blog/featured-blog.component';
+import { ArtworkGridComponent } from './components/artwork-grid/artwork-grid.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import {RouterModule} from '@angular/router';
     FeaturedCardComponent,
     LightBoxComponent,
     NavigationComponent,
+    FeaturedBlogComponent,
 
     // Pipes
 
     // Directives
     GhostButtonDirective,
     FeaturedCardDirective,
+    ArtworkGridComponent,
 
   ],
   imports: [
@@ -38,12 +42,14 @@ import {RouterModule} from '@angular/router';
     FeaturedCardComponent,
     LightBoxComponent,
     NavigationComponent,
+    FeaturedBlogComponent,
 
     // Pipes
 
     // Directives
     GhostButtonDirective,
     FeaturedCardDirective,
+    ArtworkGridComponent,
   ]
 })
 export class SharedModule {

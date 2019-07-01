@@ -13,6 +13,13 @@
   100% {transform:rotate(360deg) }
 }
 
+.is-flex-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .spinner {
   position:relative;
   width: 180px;

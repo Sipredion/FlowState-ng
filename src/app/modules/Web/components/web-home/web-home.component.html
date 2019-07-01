@@ -1,4 +1,14 @@
-<mat-toolbar color="accent">
-  Welcome to my Web...
-</mat-toolbar>
-<router-outlet></router-outlet>
+<app-navigation></app-navigation>
+<section class="web-section">
+  <mat-toolbar class="web-header w-75 mx-auto">
+    <h1>Welcome to my Web...</h1>
+    <nav class="art-nav">
+      <button appGhostButton>Projects</button>
+      <button appGhostButton>Tutorials</button>
+      <button appGhostButton>Github</button>
+    </nav>
+  </mat-toolbar>
+  <div class="mx-auto">
+    <router-outlet></router-outlet>
+  </div>
+</section>
