@@ -17,16 +17,8 @@ export class FeaturedService extends FeaturedArtService {
     super(httpClient);
   }
 
-  getArtMeta(): Observable<Array<BaseMeta>> {
-    return super.getArtMeta();
-  }
-
   getFeaturedMeta(): Observable<Array<BaseMeta>> {
     return super.getFeaturedMeta();
-  }
-
-  getAllArtwork(): Observable<Array<Render>> {
-    return super.getAllArtwork();
   }
 
   getFeaturedArtwork(): Observable<Array<Render>> {
@@ -39,9 +31,5 @@ export class FeaturedService extends FeaturedArtService {
 
   getFeaturedArtByCategoryId(categoryId: number): Observable<Array<Render>> {
     return super.getFeaturedArtByCategoryId(categoryId);
-  }
-
-  getSingleArtworkById(id: number): Observable<Render> {
-    return super.getSingleArtworkById(id);
   }
 }
