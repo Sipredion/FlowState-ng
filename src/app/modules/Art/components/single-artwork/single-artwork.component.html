@@ -1,15 +1,11 @@
 <app-spinner [loading]="isLoading$">
-  <div class="artwork-body">
-    <div class="w-95 mx-auto">
-      <mat-card>
-        <mat-card-content>
-          <h1 mat-card-title class="text-primary text-center">{{artwork.title}}</h1>
-        </mat-card-content>
-        <div class="d-flex justify-content-center align-items-center">
-          <img [src]="artwork.featuredImage" [alt]="artwork.title" class="single-image">
-        </div>
-      </mat-card>
+  <div class="artwork-body" *ngIf="artwork">
+    <div class="w-95 mx-auto my-4 d-flex justify-content-center align-items-center flex-column">
+      <h1 mat-card-title class="text-primary">{{artwork.title}}</h1>
+      <small class="mb-1" [innerHTML]="artwork.summary"></small>
+      <img [src]="artwork.featuredImage" [alt]="artwork.title" class="single-image">
     </div>
+    
     <div class="w-75">
       <mat-card>
         <mat-card-content>
@@ -18,5 +14,42 @@
         </mat-card-content>
       </mat-card>
     </div>
+    
+    <ng-container *ngIf="artwork.hasMultiple">
+      <ng-container *ngFor="let image of artwork.urls.otherImages; let idx = index">
+        <div class="d-flex flex-column justify-content-center align-items-center mt-2">
+          <h3 class="text-center text-primary">Other View {{idx + 1}}</h3>
+          <img [src]="image | safeHtml: 'url'" [alt]="artwork.title" class="single-image">
+        </div>
+      </ng-container>
+    </ng-container>
+    
+    <div class="action-buttons mb-5 mt-3">
+      <a [href]="artwork.urls.artStationUrl">
+        <button appGhostButton color="primary" size="xl">
+          View on ArtStation
+          <i class="fab fa-artstation ml-2"></i>
+        </button>
+      </a>
+      <a [href]="artwork.urls.downloadUrl">
+        <button appGhostButton color="primary" size="xl">
+          Download Image
+          <i class="fas fa-download ml-2"></i>
+        </button>
+      </a>
+      <a [href]="artwork.urls.printUrl">
+        <button appGhostButton color="primary" size="xl">
+          Buy a Print
+          <i class="fas fa-palette ml-2"></i>
+        </button>
+      </a>
+      <a routerLink="/art/home">
+        <button appGhostButton color="primary" size="xl">
+          See More Art
+          <i class="fas fa-angle-double-right ml-2"></i>
+        </button>
+      </a>
+    </div>
+  
   </div>
 </app-spinner>

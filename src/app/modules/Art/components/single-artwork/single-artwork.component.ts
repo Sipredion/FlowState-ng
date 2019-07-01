@@ -22,7 +22,8 @@ export class SingleArtworkComponent extends BaseComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.isLoading();
       this.artworkService.getSingleArtworkById(params['id']).subscribe(artwork => {
-        this.artwork = artwork;
+        this.artwork = new Render(artwork);
+        console.log(this.artwork);
         this.isLoaded();
       });
     });

@@ -10,6 +10,7 @@ import {NavigationComponent} from './components/navigation/navigation.component'
 import {RouterModule} from '@angular/router';
 import {FeaturedBlogComponent} from './components/old/featured-blog/featured-blog.component';
 import { ArtworkGridComponent } from './components/artwork-grid/artwork-grid.component';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { ArtworkGridComponent } from './components/artwork-grid/artwork-grid.com
     LightBoxComponent,
     NavigationComponent,
     FeaturedBlogComponent,
+    ArtworkGridComponent,
 
     // Pipes
+    SafeHtmlPipe,
 
     // Directives
     GhostButtonDirective,
     FeaturedCardDirective,
-    ArtworkGridComponent,
 
   ],
   imports: [
@@ -43,13 +45,14 @@ import { ArtworkGridComponent } from './components/artwork-grid/artwork-grid.com
     LightBoxComponent,
     NavigationComponent,
     FeaturedBlogComponent,
+    ArtworkGridComponent,
 
     // Pipes
+    SafeHtmlPipe,
 
     // Directives
     GhostButtonDirective,
     FeaturedCardDirective,
-    ArtworkGridComponent,
   ]
 })
 export class SharedModule {
