@@ -11,6 +11,7 @@ import {RouterModule} from '@angular/router';
 import {FeaturedBlogComponent} from './components/old/featured-blog/featured-blog.component';
 import { ArtworkGridComponent } from './components/artwork-grid/artwork-grid.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { BackgroundImagePipe } from './pipes/background-image.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
     // Pipes
     SafeHtmlPipe,
+    BackgroundImagePipe,
 
     // Directives
     GhostButtonDirective,
@@ -49,6 +51,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
     // Pipes
     SafeHtmlPipe,
+    BackgroundImagePipe,
 
     // Directives
     GhostButtonDirective,

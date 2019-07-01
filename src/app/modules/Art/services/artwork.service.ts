@@ -5,11 +5,12 @@ import {Observable} from 'rxjs';
 import {BaseMeta} from '../../public/models/base-meta.model';
 import {FlowStateHostEntity} from '../../shared/services/flowstate-host-entity.enum';
 import {Render} from '../../shared/models/render';
+import {FeaturedArtService} from '../../public/services/featured-art.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArtworkService extends BaseHttpService {
+export class ArtworkService extends FeaturedArtService  {
 
   constructor(public httpClient: HttpClient) {
     super(httpClient);

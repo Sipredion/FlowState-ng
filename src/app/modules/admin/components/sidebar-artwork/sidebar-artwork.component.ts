@@ -1,8 +1,6 @@
-import {Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import {ArtworkUploadComponent} from './artwork-upload/artwork-upload.component';
-import {ArtworkService} from '../../services/artwork.service';
-import {Subscription} from 'rxjs';
 import {Render} from '../../../shared/models/render';
 
 @Component({
@@ -16,8 +14,7 @@ export class SidebarArtworkComponent implements OnInit {
 
   dialogRef: MatBottomSheetRef;
 
-  constructor(private bottomSheet: MatBottomSheet,
-              private artService: ArtworkService) {
+  constructor(private bottomSheet: MatBottomSheet) {
   }
 
   ngOnInit() {
@@ -27,10 +24,10 @@ export class SidebarArtworkComponent implements OnInit {
     this.dialogRef = this.bottomSheet.open<ArtworkUploadComponent>(this.upload);
   }
 
-  uploadRender(render: Render) {
-    this.artService.uploadRender(render).subscribe(res => {
-      console.log(res);
-    })
-  }
+  // uploadRender(render: Render) {
+  //   this.artService.uploadRender(render).subscribe(res => {
+  //     console.log(res);
+  //   })
+  // }
 
 }

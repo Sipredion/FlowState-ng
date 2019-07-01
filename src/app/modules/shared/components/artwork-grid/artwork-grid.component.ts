@@ -26,36 +26,19 @@ export class ArtworkGridComponent extends BaseComponent implements OnInit, After
 
   @Input() artwork: Array<Render | Web>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private cd: ChangeDetectorRef) {
     super();
   }
 
   ngOnInit() {
-    console.log(this.artwork);
   }
 
   ngAfterViewInit() {
-    if (this.artwork && this.artwork.length && this.featuredImg) {
-      this.featuredImg.forEach((image, idx) => {
-        const imgUrl = this.artwork[idx].featuredImage;
-        image.nativeElement.style.background = `url("${imgUrl}") center/cover no-repeat`;
-      });
-    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['artwork']) {
-      this.isLoading();
-      if (this.artwork && this.artwork.length && this.featuredImg) {
-        this.featuredImg.changes.subscribe(() => {
-          this.featuredImg.toArray().forEach((image, idx) => {
-            const imgUrl = this.artwork[idx].featuredImage;
-            image.nativeElement.style.background = `url("${imgUrl}") center/cover no-repeat`;
-          });
-        });
-        this.isLoaded();
-      }
-    }
+    this.cd.detectChanges();
   }
 
   showPost(id: number, name: string) {
