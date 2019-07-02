@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-art-home',
@@ -8,12 +7,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ArtHomeComponent implements OnInit {
 
-  currentType: string;
-
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.currentType = this.route.snapshot.params['type'];
   }
 
 }
