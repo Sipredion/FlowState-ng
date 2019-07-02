@@ -1,10 +1,11 @@
 <app-navigation></app-navigation>
 <section class="art-section">
   <mat-toolbar class="art-header w-75 mx-auto">
-    <h1>My creative outlet...</h1>
+    <h1></h1>
     <nav class="art-nav">
-      <button appGhostButton>Renders</button>
-      <button appGhostButton>Models</button>
+      <button appGhostButton>Categories</button>
+      <button appGhostButton routerLink="/art/type/featured" routerLinkActive="activeButton">Featured</button>
+      <button appGhostButton routerLink="/art/type/all" routerLinkActive="activeButton">All Art</button>
     </nav>
   </mat-toolbar>
   <div class="mx-auto">
