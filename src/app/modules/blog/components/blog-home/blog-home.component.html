@@ -5,30 +5,24 @@
     <h2 class="text-center mt-2">Recent Posts:</h2>
     <div class="recent posts">
       <ng-container *ngFor="let post of allPosts">
-        <button
-          appGhostButton
-          color="accent"
-          size="lg"
-          class="mt-2"
+        <a
+          class="app-link"
           (click)="routeToPost(post.id, post.slug)"
         >
           {{post.name}}
-        </button>
+        </a>
       </ng-container>
     </div>
     
     <h2 class="text-center mt-4">Featured Posts:</h2>
     <div class="featured posts">
       <ng-container *ngFor="let post of featuredPosts">
-        <button
-          appGhostButton
-          color="accent"
-          size="lg"
-          class="mt-2"
+        <a
+          class="app-link"
           (click)="routeToPost(post.id, post.slug)"
         >
           {{post.name}}
-        </button>
+        </a>
       </ng-container>
     </div>
     
@@ -41,6 +35,7 @@
     </footer>
   </mat-sidenav>
   <mat-sidenav-content>
+    <app-navigation></app-navigation>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
